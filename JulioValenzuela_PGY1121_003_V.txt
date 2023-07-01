@@ -1,0 +1,86 @@
+# automotora “Auto Seguro”#
+class Vehiculo:
+    def __int__(self, tipo, patente, marca, precio, multas, fecha_registro, dueño):
+        self.tipo = tipo
+        self.patente = patente
+        self.marca = marca
+        self.precio = precio
+        self.multas = multas
+        self.fecha_registro = fecha_registro
+        self.dueño = dueño
+vehiculos = []
+def grabar_vehiculo():
+    tipo = input("Tipo de vehículo: ")
+    patente = input("Patente: ")
+    marca = input("Marca: ")
+    precio = int(input("Precio: "))
+    multas = []
+    fecha_registro = input("Fecha de registro: ")
+    dueño = input("Nombre del dueño: ")
+    if len(patente) != 6:
+        print("La patente debe tener 6 caracteres.")
+        return
+    if len(marca) < 2 or len(marca) > 15:
+        print("La marca debe tener entre 2 y 15 caracteres.")
+        return
+    if precio <= 5000000:
+        print("El precio debe ser mayor a $5.000.000.")
+        return
+    vehiculo = Vehiculo(tipo, patente, marca, precio, multas, fecha_registro, dueño)
+    vehiculos.append(vehiculo)
+    print("Vehículo registrado exitosamente.")
+def buscar_vehiculo():
+    patente_buscar = input("Ingrese la patente del vehículo a buscar: ")
+    for vehiculo in vehiculos:
+        if vehiculo.patente == patente_buscar:
+            print("Información del vehículo:")
+            print("Tipo:", vehiculo.tipo)
+            print("Patente:", vehiculo.patente)
+            print("Marca:", vehiculo.marca)
+            print("Precio:", vehiculo.precio)
+            print("Multas:", vehiculo.multas)
+            print("Fecha de registro:", vehiculo.fecha_registro)
+            print("Dueño:", vehiculo.dueño)
+            return
+    print("No se encontró ningún vehículo con esa patente.")
+def imprimir_certificados():
+    for vehiculo in vehiculos:
+        print("Certificado de Emisión de contaminantes:")
+        print("Nombre del certificado: Emisión de contaminantes")
+        print("Patente del auto:", vehiculo.patente)
+        print("Datos del dueño:", vehiculo.dueño)
+        print("Certificado de anotaciones vigentes:")
+        print("Nombre del certificado: Anotaciones vigentes")
+        print("Patente del auto:", vehiculo.patente)
+        print("Datos del dueño:", vehiculo.dueño)
+        print("Certificado de multas:")
+        print("Nombre del certificado: Multas")
+        print("Patente del auto:", vehiculo.patente)
+        print("Datos del dueño:", vehiculo.dueño)
+def mostrar_menu():
+    print("---- Auto Seguro ----")
+    print("1. Grabar vehículo")
+    print("2. Buscar vehículo")
+    print("3. Imprimir certificados")
+    print("4. Salir")
+def main():
+    nombre = input("Ingrese su nombre y apellido: ")
+    version = "1.0"
+    while True:
+        mostrar_menu()
+        opcion = input("Ingrese una opción: ")
+        if opcion == "1":
+            grabar_vehiculo()
+        elif opcion == "2":
+            buscar_vehiculo()
+        elif opcion == "3":
+            imprimir_certificados()
+        elif opcion == "4":
+         print("Gracias por utilizar el programa.")
+         print("Nombre: " + nombre)
+         print("Versión: " + version)
+        break
+    else:
+         print("Opción inválida. Por favor, ingrese una opción válida.")
+         if name == "main":
+            main()
